@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BANDULA AUTO ENGINEERING | Wariyapola</title>
+  <meta name="description" content="Bandula Auto Engineering - Engine repair, tinkering, painting & full service. Wariyapola." />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0a0a0a; --card:#131313; --text:#eaeaea; --muted:#b9b9b9;
+      --brand:#f39c12; --brand-2:#ffce75; --border:#262626;
+      --radius:18px; --radius-sm:12px; --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{
+      font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#0a0a0a 0%, #0c0c0c 60%, #0a0a0a 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(1200px,92%);margin-inline:auto}
+
+    /* Header / Nav */
+    .topbar{
+      background:#0a0a0a; border-bottom:1px solid var(--border); font-size:.95rem; color:var(--muted);
+    }
+    .topbar .container{display:flex; gap:12px; justify-content:space-between; padding:.45rem 0}
+    .topbar a{opacity:.9}
+    .nav{
+      position:sticky; top:0; z-index:50; background:#0b0b0bba; backdrop-filter:saturate(160%) blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+    .nav .row{display:flex; align-items:center; justify-content:space-between; padding:.8rem 0}
+    .brand{display:flex; gap:.6rem; align-items:center; font-weight:700; letter-spacing:.5px}
+    .logo{
+      width:38px;height:38px;border-radius:12px;display:grid;place-items:center;
+      background:radial-gradient(120px 70px at 20% 20%, var(--brand), #c97a06 70%, #734a04 100%);
+      color:#141414; font-weight:900;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.4), 0 6px 18px rgba(243,156,18,.25);
+    }
+    .brand span{color:var(--brand)}
+    .menu{display:flex; gap:1rem; font-weight:600}
+    .menu a{padding:.45rem .8rem;border-radius:10px;color:#dcdcdc}
+    .menu a:hover{background:#151515}
+    .cta-btn{
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      color:#1a1a1a; font-weight:800; border:none; padding:.7rem 1rem; border-radius:12px; cursor:pointer;
+      box-shadow:0 8px 22px rgba(243,156,18,.35);
+    }
+    .cta-btn:hover{transform:translateY(-1px)}
+
+    /* Hero */
+    .hero{
+      position:relative; isolation:isolate; overflow:hidden; border-bottom:1px solid var(--border);
+      background:url('images/hero-garage.jpg') center/cover no-repeat, radial-gradient(1200px 500px at 80% -10%, rgba(243,156,18,.15), transparent);
+    }
+    .hero::after{
+      content:""; position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(10,10,10,.9) 80%);
+      z-index:-1;
+    }
+    .hero .wrap{padding:80px 0 60px; display:grid; gap:22px}
+    .hero h1{font-size:clamp(28px,4.4vw,54px); line-height:1.15; margin:0}
+    .badge{
+      display:inline-flex; align-items:center; gap:.5rem; background:#141414; color:#ffdfac;
+      border:1px solid #2a2a2a; padding:.35rem .6rem; border-radius:999px; font-weight:700; font-size:.85rem
+    }
+    .hero p{color:#d6d6d6; max-width:760px; margin:0}
+    .hero .actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:6px}
+    .outline{
+      background:transparent; color:var(--brand); border:1px solid var(--brand);
+      padding:.7rem 1rem; border-radius:12px; font-weight:700; cursor:pointer
+    }
+    .hero-cards{
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px; margin-top:14px
+    }
+    .hcard{
+      background:rgba(20,20,20,.75); border:1px solid var(--border); border-radius:var(--radius);
+      padding:16px; box-shadow:var(--shadow)
+    }
+    .hcard h3{margin:.2rem 0 .2rem; color:var(--brand); font-size:1.05rem}
+
+    /* Sections */
+    section{padding:64px 0; border-bottom:1px solid var(--border)}
+    .section-title{
+      text-align:center; margin-bottom:28px
+    }
+    .section-title h2{margin:0;font-size:clamp(22px,3.4vw,36px); color:var(--brand)}
+    .section-title p{margin:6px auto 0; color:var(--muted); max-width:700px}
+
+    /* Services */
+    .cards{
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:18px
+    }
+    .card{
+      background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+      padding:18px; transition:transform .25s ease, box-shadow .25s ease
+    }
+    .card:hover{transform:translateY(-4px); box-shadow:var(--shadow)}
+    .card h3{margin:.4rem 0 .2rem; color:#ffcf88}
+    .chip{display:inline-block;padding:.2rem .55rem;border:1px solid var(--border);border-radius:999px;color:#cfcfcf;font-size:.8rem}
+
+    /* Gallery */
+    .gallery{
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px
+    }
+    .g-item{
+      position:relative; border-radius:16px; overflow:hidden; border:1px solid var(--border); cursor:pointer
+    }
+    .g-item img{width:100%; height:220px; object-fit:cover; transition:transform .35s ease}
+    .g-item:hover img{transform:scale(1.05)}
+    .g-cap{
+      position:absolute; left:8px; bottom:8px; background:rgba(0,0,0,.55);
+      padding:.25rem .5rem; border-radius:8px; font-size:.85rem
+    }
+
+    /* Lightbox */
+    .lightbox{position:fixed; inset:0; display:none; place-items:center; background:rgba(0,0,0,.85); z-index:100}
+    .lightbox.open{display:grid}
+    .lightbox img{max-width:min(95vw,1100px); max-height:86vh; border-radius:16px; border:2px solid #333}
+    .lightbox .close{position:absolute; top:14px; right:14px; background:#111; border:1px solid #333; color:#fff; border-radius:10px; padding:.5rem .7rem; cursor:pointer}
+
+    /* Reviews */
+    .reviews{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px}
+    .review{
+      background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:18px
+    }
+    .stars{letter-spacing:2px; color:#ffd76a}
+
+    /* Contact */
+    .contact{
+      display:grid; grid-template-columns:1.1fr .9fr; gap:18px
+    }
+    .contact .box{
+      background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:18px
+    }
+    form .row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    form input, form textarea{
+      width:100%; background:#0f0f0f; color:#fff; border:1px solid #2a2a2a; border-radius:12px; padding:.9rem
+    }
+    form textarea{min-height:120px; resize:vertical}
+    form button{margin-top:8px}
+
+    /* Footer */
+    footer{background:#0a0a0a; color:#cfcfcf; padding:28px 0}
+    .footgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px}
+    .small{font-size:.92rem; color:#a7a7a7}
+
+    /* Mobile tweaks */
+    @media (max-width: 860px){
+      .contact{grid-template-columns:1fr}
+      .menu{display:none}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container">
+      <div>📍 Anuradhapura Rd, Ebawalapitiya, Minuwangate, Wariyapola</div>
+      <div>
+        ☎️ <a href="tel:+94719473005">071 947 3005</a> | <a href="tel:+94768611933">076 861 1933</a>
+        &nbsp;•&nbsp; 💬 <a href="https://wa.me/94719473005" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="container row">
+      <div class="brand">
+        <div class="logo">BA</div>
+        <div>BANDULA <span>AUTO</span> ENGINEERING</div>
+      </div>
+      <div class="menu">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#works">Works</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="cta-btn" href="tel:+94719473005">Call Now</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container wrap">
+      <span class="badge">🔧 Trusted Garage • Since 2008</span>
+      <h1>ඉංජිනේරු වැඩ, ටින්කට්, පේන්ටින් & <span style="color:var(--brand)">Full Service</span></h1>
+      <p>හයෑස්, ලොරී, වෑන්, කාර් & බස් — Engine overhauls, body repairs, scanning & diagnostics. වැඩ පිළිගන්නා කාලය: සදු–ශනි 8.00–6.00.</p>
+      <div class="actions">
+        <a class="cta-btn" href="https://wa.me/94719473005" target="_blank" rel="noopener">WhatsApp Estimate</a>
+        <a class="outline" href="#works">View Our Works</a>
+      </div>
+
+      <div class="hero-cards">
+        <div class="hcard">
+          <div class="chip">Engine & Mechanical</div>
+          <h3>Computer Diagnostics</h3>
+          <p class="small">OBD scanning, fault finding, tune-ups.</p>
+        </div>
+        <div class="hcard">
+          <div class="chip">Body & Paint</div>
+          <h3>Accident Repairs</h3>
+          <p class="small">Panel beating, rust repair, premium paint.</p>
+        </div>
+        <div class="hcard">
+          <div class="chip">Service</div>
+          <h3>Maintenance</h3>
+          <p class="small">Oil changes, brake service, AC repair.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>අපි කවුද?</h2>
+        <p>Wariyapola ප්‍රදේශයේ විශ්වාසදායී සේවාවක් — දශකයක් 넘 Experience සහ modern equipment.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>👨‍🔧 Skilled Team</h3>
+          <p>Certified mechanics & painters with hands-on brand experience (Toyota, Nissan, Mitsubishi, Hino).</p>
+        </div>
+        <div class="card">
+          <h3>🛠 Genuine Parts</h3>
+          <p>OEM/High-grade aftermarket parts with clear warranty.</p>
+        </div>
+        <div class="card">
+          <h3>⏱ Fast Turnaround</h3>
+          <p>Planned jobs, daily progress updates on phone/WhatsApp.</p>
+        </div>
+        <div class="card">
+          <h3>💸 Fair Pricing</h3>
+          <p>Pre-approved estimates. No hidden fees.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Services</h2>
+        <p>Engine—from minor service to full overhaul. Body—from small dent to full repaint.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="chip">Engine</div>
+          <h3>Overhaul & Rebuild</h3>
+          <p>Head/gasket, rings, bearings, pump, timing, injectors, calibration.</p>
+        </div>
+        <div class="card">
+          <div class="chip">Diagnostics</div>
+          <h3>Computer Scan</h3>
+          <p>OBD-II live data, error code clearing, emissions checks.</p>
+        </div>
+        <div class="card">
+          <div class="chip">Body</div>
+          <h3>Panel Beating</h3>
+          <p>Accident damage, rust cut & weld, alignment, undercarriage.</p>
+        </div>
+        <div class="card">
+          <div class="chip">Paint</div>
+          <h3>Spray Booth Finish</h3>
+          <p>Basecoat/clearcoat, color match, ceramic coat on request.</p>
+        </div>
+        <div class="card">
+          <div class="chip">Service</div>
+          <h3>Periodic Maintenance</h3>
+          <p>Fluids, filters, brakes, suspension, AC service.</p>
+        </div>
+        <div class="card">
+          <div class="chip">Electrical</div>
+          <h3>Auto Electrical</h3>
+          <p>Starter/alternator, wiring faults, lighting upgrades.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Works / Gallery -->
+  <section id="works">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Works</h2>
+        <p>Recent projects — click a photo to zoom.</p>
+      </div>
+
+      <div class="gallery" id="gallery">
+        <!-- Update image paths to your own -->
+        <figure class="g-item">
+          <img src="images/hiace2.jpg" alt="Toyota Hiace engine bay refresh" data-caption="Hiace • Engine service & detailing">
+          <figcaption class="g-cap">Hiace Engine</figcaption>
+        </figure>
+        <figure class="g-item">
+          <img src="images/hiace4.jpg" alt="Hiace full repaint" data-caption="Hiace • Full repaint">
+          <figcaption class="g-cap">Full Repaint</figcaption>
+        </figure>
+        <figure class="g-item">
+          <img src="images/hiace5.jpg" alt="Hiace panel beating and paint" data-caption="Hiace • Panel + Paint">
+          <figcaption class="g-cap">Panel + Paint</figcaption>
+        </figure>
+
+        <figure class="g-item">
+          <img src="images/d211.jpg" alt="Truck D2 panel align" data-caption="Truck • Panel alignment">
+          <figcaption class="g-cap">Truck Panel</figcaption>
+        </figure>
+        <figure class="g-item">
+          <img src="images/d212.jpg" alt="Truck prep for paint" data-caption="Truck • Prep & masking">
+          <figcaption class="g-cap">Prep & Mask</figcaption>
+        </figure>
+        <figure class="g-item">
+          <img src="images/d213.jpg" alt="Truck paint booth" data-caption="Truck • Spray booth finish">
+          <figcaption class="g-cap">Spray Booth</figcaption>
+        </figure>
+        <figure class="g-item">
+          <img src="images/d214.jpg" alt="Truck final finish" data-caption="Truck • Final finish">
+          <figcaption class="g-cap">Final Finish</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+      <button class="close" id="lbClose">✕ Close</button>
+      <img id="lbImg" src="" alt="">
+      <div class="small" id="lbCap" style="margin-top:8px;text-align:center;color:#e8e8e8"></div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section id="reviews">
+    <div class="container">
+      <div class="section-title">
+        <h2>Customer Reviews</h2>
+        <p>තත්වය, වේගය, මිල — අප වගකියනවා.</p>
+      </div>
+      <div class="reviews">
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>“Hiace repaint එක super. color match එක original වගේ.”</p>
+          <div class="small">— Sampath P.</div>
+        </div>
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>“Engine overhaul කරලා fuel economy හොඳයි. price clear & fair.”</p>
+          <div class="small">— Isuri D.</div>
+        </div>
+        <div class="review">
+          <div class="stars">★★★★☆</div>
+          <p>“Quick service. WhatsApp updates දුන්නා. Recommend.”</p>
+          <div class="small">— Nuwan R.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact & Location</h2>
+        <p>අපට අමතන්න — estimate එකක් WhatsApp එකෙන්ම ගන්න.</p>
+      </div>
+
+      <div class="contact">
+        <div class="box">
+          <h3>Message Us</h3>
+          <form action="mailto:bandula.auto.engineering@example.com" method="post" enctype="text/plain">
+            <div class="row">
+              <div>
+                <label class="small">Full Name</label>
+                <input name="name" type="text" placeholder="Your name" required>
+              </div>
+              <div>
+                <label class="small">Phone</label>
+                <input name="phone" type="tel" placeholder="07X XXX XXXX" required>
+              </div>
+            </div>
+            <div class="row">
+              <div>
+                <label class="small">Vehicle</label>
+                <input name="vehicle" type="text" placeholder="e.g., Toyota Hiace / 2007">
+              </div>
+              <div>
+                <label class="small">Service Type</label>
+                <input name="service" type="text" placeholder="Engine / Body / Paint / Other">
+              </div>
+            </div>
+            <label class="small">Message</label>
+            <textarea name="message" placeholder="Tell us what you need…"></textarea>
+            <div style="display:flex; gap:10px; flex-wrap:wrap">
+              <button class="cta-btn" type="submit">Send via Email</button>
+              <a class="outline" href="https://wa.me/94719473005?text=Hello%20Bandula%20Auto%20Engineering%2C%20I%20need%20a%20quote." target="_blank" rel="noopener">Chat on WhatsApp</a>
+            </div>
+          </form>
+          <p class="small" style="margin-top:8px">Note: Email opens in your mail app. For instant reply, use WhatsApp.</p>
+        </div>
+
+        <div class="box">
+          <h3>Workshop</h3>
+          <p>
+            📍 Anuradhapura Road, Ebawalapitiya, Minuwangate, Wariyapola<br>
+            ☎️ <a href="tel:+94719473005">071 9473005</a> | <a href="tel:+94768611933">076 8611933</a><br>
+            🕘 Mon–Sat: 8.00am – 6.00pm
+          </p>
+          <div style="overflow:hidden;border-radius:16px;border:1px solid var(--border)">
+            <!-- Replace the query string with your exact map if you like -->
+            <iframe
+              title="Bandula Auto Engineering - Map"
+              src="https://www.google.com/maps?q=Wariyapola&output=embed"
+              width="100%" height="290" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footgrid">
+      <div>
+        <div class="brand" style="margin-bottom:6px">
+          <div class="logo">BA</div>
+          <div>BANDULA <span style="color:var(--brand)">AUTO</span> ENGINEERING</div>
+        </div>
+        <div class="small">Quality repairs with modern tools. Engine, body & paint under one roof.</div>
+      </div>
+      <div>
+        <h4 style="margin:.2rem 0">Quick Links</h4>
+        <div class="small"><a href="#services">Services</a> · <a href="#works">Works</a> · <a href="#contact">Contact</a></div>
+      </div>
+      <div>
+        <h4 style="margin:.2rem 0">Contact</h4>
+        <div class="small">
+          <div>📞 071 9473005 / 076 8611933</div>
+          <div>💬 <a href="https://wa.me/94719473005" target="_blank" rel="noopener">WhatsApp</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="container" style="border-top:1px solid var(--border); margin-top:16px; padding-top:12px">
+      <div class="small">© <span id="year"></span> Bandula Auto Engineering. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple Lightbox
+    const gallery = document.getElementById('gallery');
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbCap = document.getElementById('lbCap');
+    const lbClose = document.getElementById('lbClose');
+
+    gallery.addEventListener('click', e => {
+      const img = e.target.closest('.g-item img');
+      if(!img) return;
+      lbImg.src = img.src;
+      lbImg.alt = img.alt || "";
+      lbCap.textContent = img.dataset.caption || "";
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+
+    function closeLb(){
+      lightbox.classList.remove('open');
+      lbImg.src = "hiace2.jpg";
+      document.body.style.overflow = '';
+    }
+
+    lbClose.addEventListener('click', closeLb);
+    lightbox.addEventListener('click', e => {
+      if(e.target === lightbox) closeLb();
+    });
+
+    // ESC to close
+    window.addEventListener('keydown', e => {
+      if(e.key === 'Escape' && lightbox.classList.contains('open')) closeLb();
+    });
+  </script>
+</body>
+</html>
